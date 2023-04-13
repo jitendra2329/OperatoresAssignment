@@ -1,10 +1,9 @@
 package com.knoldus
 
-import com.knoldus.FibonacciSeries.fibonacciSeries
+import com.typesafe.scalalogging.Logger
 
 import scala.annotation.tailrec
 import scala.concurrent.Future
-import scala.jdk.Accumulator
 import scala.math.BigDecimal.double2bigDecimal
 
 // User defined exception class for calculation errors
@@ -12,7 +11,12 @@ class CalculatorException(message: String) extends Exception
 
 // Validation and execution of operands for Additions
 case object Addition extends Operator {
-  override def validate(operands: Seq[Double]): Boolean = operands.length == 2
+  private val logger: Logger = Logger(getClass.getName)
+
+  override def validate(operands: Seq[Double]): Boolean = {
+    logger.info("validation done for the addition of two numbers!")
+    operands.length == 2
+  }
 
   override def validateAndExecute(operands: Seq[Double]): Seq[Double] = execute(operands)
 
@@ -24,7 +28,12 @@ case object Addition extends Operator {
 
 // Validation and execution of operands for Subtraction
 case object Subtraction extends Operator {
-  override def validate(operands: Seq[Double]): Boolean = operands.length == 2
+  private val logger: Logger = Logger(getClass.getName)
+
+  override def validate(operands: Seq[Double]): Boolean = {
+    logger.info("validation done for the subtraction of two numbers!")
+    operands.length == 2
+  }
 
   override def validateAndExecute(operands: Seq[Double]): Seq[Double] = execute(operands)
 
@@ -36,7 +45,12 @@ case object Subtraction extends Operator {
 
 //Validation and execution of operands for Multiplication
 case object Multiplication extends Operator {
-  override def validate(operands: Seq[Double]): Boolean = operands.length == 2
+  private val logger: Logger = Logger(getClass.getName)
+
+  override def validate(operands: Seq[Double]): Boolean = {
+    logger.info("validation done for the multiplication of two numbers!")
+    operands.length == 2
+  }
 
   override def validateAndExecute(operands: Seq[Double]): Seq[Double] = execute(operands)
 
@@ -48,7 +62,12 @@ case object Multiplication extends Operator {
 
 //Validation and execution of operands for Division
 case object Division extends Operator {
-  override def validate(operands: Seq[Double]): Boolean = operands.length == 2
+  private val logger: Logger = Logger(getClass.getName)
+
+  override def validate(operands: Seq[Double]): Boolean = {
+    logger.info("validation done for the division of two numbers!")
+    operands.length == 2
+  }
 
   override def validateAndExecute(operands: Seq[Double]): Seq[Double] = execute(operands)
 
@@ -60,7 +79,12 @@ case object Division extends Operator {
 
 //Validation and execution of operands for Power
 case object Power extends Operator {
-  override def validate(operands: Seq[Double]): Boolean = operands.length == 2
+  private val logger: Logger = Logger(getClass.getName)
+
+  override def validate(operands: Seq[Double]): Boolean = {
+    logger.info("validation done for finding power!")
+    operands.length == 2
+  }
 
   override def validateAndExecute(operands: Seq[Double]): Seq[Double] = execute(operands)
 
@@ -72,7 +96,12 @@ case object Power extends Operator {
 
 //Validation and execution of operands for SquareRoot
 case object SquareRoot extends Operator {
-  override def validate(operands: Seq[Double]): Boolean = operands.length == 1 && operands.head >= 0
+  private val logger: Logger = Logger(getClass.getName)
+
+  override def validate(operands: Seq[Double]): Boolean = {
+    logger.info("validation done for finding square root!")
+    operands.length == 1 && operands.head >= 0
+  }
 
   override def validateAndExecute(operands: Seq[Double]): Seq[Double] = execute(operands)
 
@@ -84,7 +113,12 @@ case object SquareRoot extends Operator {
 
 //Validation and execution of operands for Factorial
 case object Factorial extends Operator {
-  override def validate(operands: Seq[Double]): Boolean = operands.length == 1
+  private val logger: Logger = Logger(getClass.getName)
+
+  override def validate(operands: Seq[Double]): Boolean = {
+    logger.info("validation done for finding factorials!")
+    operands.length == 1
+  }
 
   override def validateAndExecute(operands: Seq[Double]): Seq[Double] = execute(operands)
 
@@ -102,7 +136,12 @@ case object Factorial extends Operator {
 
 //Validation and execution of operands for Summation
 case object Summation extends Operator {
-  override def validate(operands: Seq[Double]): Boolean = operands.nonEmpty
+  private val logger: Logger = Logger(getClass.getName)
+
+  override def validate(operands: Seq[Double]): Boolean = {
+    logger.info("validation done for finding Summation!")
+    operands.nonEmpty
+  }
 
   override def validateAndExecute(operands: Seq[Double]): Seq[Double] = execute(operands)
 
@@ -114,7 +153,12 @@ case object Summation extends Operator {
 
 //Validation and execution of operands for GetOddOperands
 case object GetOddOperands extends Operator {
-  override def validate(operands: Seq[Double]): Boolean = operands.nonEmpty
+  private val logger: Logger = Logger(getClass.getName)
+
+  override def validate(operands: Seq[Double]): Boolean = {
+    logger.info("validation done for getting odd values!")
+    operands.nonEmpty
+  }
 
   override def validateAndExecute(operands: Seq[Double]): Seq[Double] = execute(operands)
 
@@ -126,7 +170,12 @@ case object GetOddOperands extends Operator {
 
 //Validation and execution of operands for GetEvenOperands
 case object GetEvenOperands extends Operator {
-  override def validate(operands: Seq[Double]): Boolean = operands.nonEmpty
+  private val logger: Logger = Logger(getClass.getName)
+
+  override def validate(operands: Seq[Double]): Boolean = {
+    logger.info("validation done for getting even values!")
+    operands.nonEmpty
+  }
 
   override def validateAndExecute(operands: Seq[Double]): Seq[Double] = execute(operands)
 
@@ -138,7 +187,12 @@ case object GetEvenOperands extends Operator {
 
 //Validation and execution of operands for GetGCD
 case object GetGCD extends Operator {
-  override def validate(operands: Seq[Double]): Boolean = operands.length == 2
+  private val logger: Logger = Logger(getClass.getName)
+
+  override def validate(operands: Seq[Double]): Boolean = {
+    logger.info("validation done for GCD!")
+    operands.length == 2
+  }
 
   override def validateAndExecute(operands: Seq[Double]): Seq[Double] = execute(operands)
 
@@ -156,7 +210,12 @@ case object GetGCD extends Operator {
 
 //Validation and execution of operands for FibonacciSeries
 case object FibonacciSeries extends Operator {
-  override def validate(operands: Seq[Double]): Boolean = operands.length == 1
+  private val logger: Logger = Logger(getClass.getName)
+
+  override def validate(operands: Seq[Double]): Boolean = {
+    logger.info("validation done for getting fibonacci series!")
+    operands.length == 1
+  }
 
   override def validateAndExecute(operands: Seq[Double]): Seq[Double] = execute(operands)
 
@@ -175,76 +234,6 @@ case object FibonacciSeries extends Operator {
     }
   }
 }
-
-
-case object squareOfExpression {
-  def verifyResult(operands: Seq[Double]): Future[String] = {
-    if (validate(operands)) {
-      Future.successful(validateAndExecute(operands))
-    }
-    else Future.failed(new CalculatorException("results are not equal."))
-  }
-
-  private def validate(operands: Seq[Double]): Boolean = operands.length == 2
-
-  private def validateAndExecute(operands: Seq[Double]): String = execute(operands)
-
-  private def execute(operands: Seq[Double]): String = {
-    val result = squareOfExpression(operands)
-    if (result) "Equal"
-    else "Not Equal"
-  }
-
-  private def squareOfExpression(operands: Seq[Double]): Boolean = {
-    val squareOfOperands = (operands.head + operands(1)).pow(2)
-    val result = (operands.head.pow(2)) + (operands(1).pow(2)) + (2 * operands.head * operands(1))
-    squareOfOperands == result
-  }
-}
-
-case object FindNumbers {
-  def findNumbers(operands: Seq[Double]): Future[String] = {
-    if (validate(operands)) {
-      Future.successful(validateAndExecute(operands))
-    }
-    else Future.failed(new CalculatorException("results are not equal."))
-  }
-
-  private def validate(operands: Seq[Double]): Boolean = operands.nonEmpty
-
-  private def validateAndExecute(operands: Seq[Double]): String = execute(operands)
-
-  private def execute(operands: Seq[Double]): Seq[Double] = {
-    val sequenceOfFactorials = operands.map(value => findFactorial(value))
-    val valueSix = 6
-
-    def findPower(value: Double):BigDecimal = {
-      valueSix.pow(value.toInt)
-    }
-
-    val powerOfSix = for {
-      value <- operands
-    } yield valueSix.pow(value.toInt)
-
-    val result = operands.map(value => findPower(value)).filter()
-  }
-
-  private def findFactorial(value: Double): Double = {
-    @tailrec
-    def factorialHelper(number: Double, accumulator: Double = 1): Double = {
-      if (number <= 0) accumulator
-      else factorialHelper(number - 1, accumulator * number)
-    }
-
-    factorialHelper(value)
-  }
-  //  private def squareOfExpression(operands: Seq[Double]): Boolean ={
-  //    val squareOfOperands = (operands.head + operands(1)).pow(2)
-  //    val result = (operands.head.pow(2)) + (operands(1).pow(2)) + (2 * operands.head * operands(1))
-  //    squareOfOperands == result
-  //  }
-}
-
 
 object Calculator {
 

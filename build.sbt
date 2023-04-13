@@ -6,3 +6,9 @@ lazy val root = (project in file("."))
   .settings(
     name := "Calculator"
   )
+
+libraryDependencies ++= Seq(
+  "com.typesafe.scala-logging" %% "scala-logging" % "3.9.5",
+  "ch.qos.logback" % "logback-classic" % "1.4.6"
+)
+
