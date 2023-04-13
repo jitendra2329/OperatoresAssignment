@@ -87,7 +87,7 @@ object Driver extends App {
     case scala.util.Failure(exception) => println(exception.getMessage)
   }
 
-  private val isEqual = squareOfExpression.verifyResult(Seq(2, 3))
+  private val isEqual = SquareOfExpression.verifyResult(Seq(2, 3))
 
   isEqual.onComplete {
     case scala.util.Success(result) => println("Is {(9 + 5)^2 = 9^2 + 5^2 + 2*9*5} on the Seq(9,5): " + result)

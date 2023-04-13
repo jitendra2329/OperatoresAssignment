@@ -3,7 +3,7 @@ package com.knoldus
 import scala.math.BigDecimal.double2bigDecimal
 import scala.concurrent.Future
 
-case object squareOfExpression {
+case object SquareOfExpression {
   def verifyResult(operands: Seq[Double]): Future[String] = {
     if (validate(operands)) {
       Future.successful(validateAndExecute(operands))
