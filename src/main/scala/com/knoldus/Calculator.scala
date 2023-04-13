@@ -21,8 +21,7 @@ case object Addition extends Operator {
   override def validateAndExecute(operands: Seq[Double]): Seq[Double] = execute(operands)
 
   override def execute(operands: Seq[Double]): Seq[Double] = {
-    val result = operands.head + operands(1)
-    Seq(result)
+    Seq(operands.head + operands(1))
   }
 }
 
@@ -38,8 +37,7 @@ case object Subtraction extends Operator {
   override def validateAndExecute(operands: Seq[Double]): Seq[Double] = execute(operands)
 
   override def execute(operands: Seq[Double]): Seq[Double] = {
-    val result = operands.head - operands(1)
-    Seq(result)
+    Seq(operands.head - operands(1))
   }
 }
 
@@ -55,8 +53,7 @@ case object Multiplication extends Operator {
   override def validateAndExecute(operands: Seq[Double]): Seq[Double] = execute(operands)
 
   override def execute(operands: Seq[Double]): Seq[Double] = {
-    val result = operands.head * operands(1)
-    Seq(result)
+    Seq(operands.head * operands(1))
   }
 }
 
@@ -72,8 +69,7 @@ case object Division extends Operator {
   override def validateAndExecute(operands: Seq[Double]): Seq[Double] = execute(operands)
 
   override def execute(operands: Seq[Double]): Seq[Double] = {
-    val result = operands.head / operands(1)
-    Seq(result)
+    Seq(operands.head / operands(1))
   }
 }
 
@@ -123,8 +119,7 @@ case object Factorial extends Operator {
   override def validateAndExecute(operands: Seq[Double]): Seq[Double] = execute(operands)
 
   override def execute(operands: Seq[Double]): Seq[Double] = {
-    val result = calculateFactorial(operands.head)
-    Seq(result)
+    Seq(calculateFactorial(operands.head))
   }
 
   @tailrec
@@ -146,8 +141,7 @@ case object Summation extends Operator {
   override def validateAndExecute(operands: Seq[Double]): Seq[Double] = execute(operands)
 
   override def execute(operands: Seq[Double]): Seq[Double] = {
-    val result = operands.foldLeft(0.0)(_ + _)
-    Seq(result)
+    Seq(operands.foldLeft(0.0)(_ + _))
   }
 }
 
@@ -163,8 +157,7 @@ case object GetOddOperands extends Operator {
   override def validateAndExecute(operands: Seq[Double]): Seq[Double] = execute(operands)
 
   override def execute(operands: Seq[Double]): Seq[Double] = {
-    val result = operands.filter(_ % 2 != 0)
-    result
+    operands.filter(_ % 2 != 0)
   }
 }
 
@@ -180,8 +173,7 @@ case object GetEvenOperands extends Operator {
   override def validateAndExecute(operands: Seq[Double]): Seq[Double] = execute(operands)
 
   override def execute(operands: Seq[Double]): Seq[Double] = {
-    val result = operands.filter(_ % 2 == 0)
-    result
+    operands.filter(_ % 2 == 0)
   }
 }
 
@@ -197,8 +189,7 @@ case object GetGCD extends Operator {
   override def validateAndExecute(operands: Seq[Double]): Seq[Double] = execute(operands)
 
   override def execute(operands: Seq[Double]): Seq[Double] = {
-    val result = findGCD(operands.head, operands(1))
-    result
+    findGCD(operands.head, operands(1))
   }
 
   @tailrec
@@ -220,8 +211,7 @@ case object FibonacciSeries extends Operator {
   override def validateAndExecute(operands: Seq[Double]): Seq[Double] = execute(operands)
 
   override def execute(operands: Seq[Double]): Seq[Double] = {
-    val result = fibonacciSeries(operands.head)
-    result
+    fibonacciSeries(operands.head)
   }
 
   private def fibonacciSeries(number: Double): Seq[Double] = {
