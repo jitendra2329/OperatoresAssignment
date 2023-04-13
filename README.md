@@ -1,4 +1,4 @@
-# OperatoresAssignment
+# OperatorsAssignment
 
 This code defines several operators and their corresponding functions for a calculator. The operators are defined as objects and have a common interface of validate, validateAndExecute, and execute functions. The validate function checks whether the operands are valid for that particular operator, and the execute function performs the operation on the operands.
 
