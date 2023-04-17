@@ -4,6 +4,7 @@ import com.typesafe.scalalogging.Logger
 
 import scala.annotation.tailrec
 import scala.concurrent.Future
+import scala.language.implicitConversions
 import scala.math.BigDecimal.double2bigDecimal
 
 // User defined exception class for calculation errors
@@ -228,8 +229,13 @@ case object FibonacciSeries extends Operator {
 object Calculator {
 
   // matching the provided operators and the Calling the corresponding Classes
+
   def calculate(operator: String, operands: Seq[Double]): Future[Seq[Double]] = {
-    val op: Operator = operator match {
+    execute(operator, operands)
+  }
+
+  implicit private def matchOperators(operator: String): Operator = {
+    operator match {
       case "+" => Addition
       case "-" => Subtraction
       case "*" => Multiplication
@@ -244,8 +250,6 @@ object Calculator {
       case "fibonacci" => FibonacciSeries
       case _ => throw new IllegalArgumentException("Invalid operator")
     }
-
-    execute(op, operands)
   }
 
   private def execute(operator: Operator, operands: Seq[Double]): Future[Seq[Double]] = {

@@ -1,6 +1,8 @@
 package com.knoldus
 
+
 import scala.concurrent.ExecutionContext.Implicits.global
+import scala.util.{Try, Success, Failure}
 
 object Driver extends App {
   private val resultOfAddition = Calculator.calculate("+", Seq(2, 3))
@@ -66,6 +68,13 @@ object Driver extends App {
     case scala.util.Failure(exception) => println(exception.getMessage)
   }
 
+  private val resultOfNotDefinedOperator = Try(Calculator.calculate("%", Seq(20, 30)))
+
+  resultOfNotDefinedOperator match {
+    case Success(result) => println("Result resultOfNotDefinedOperator " + result)
+    case Failure(exception) => println("resultOfNotDefinedOperator : " + exception.getMessage)
+  }
+
   private val resultOfGetOddValues = Calculator.calculate("odd", Seq(10, 23, 21, 45, 22, 44, 87, 34))
 
   resultOfGetOddValues.onComplete {
@@ -101,7 +110,7 @@ object Driver extends App {
     case scala.util.Failure(exception) => println(exception.getMessage)
   }
 
-  private val averageAfterChangingOperations = FindAverageAfterChangingOperations.findAverageAfterChangingOperations(Seq(5, 3, 7, 8, 11, 10))
+  private val averageAfterChangingOperations = FindAverageAfterChangingOperations.findAverageAfterChangingOperations(Seq(5, 3, 7, 9))
 
   averageAfterChangingOperations.onComplete {
     case scala.util.Success(result) => println("Result of averageAfterChangingOperations of the Seq(2, 4, 9, 5, 12): " + result)
