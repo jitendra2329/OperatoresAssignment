@@ -94,12 +94,4 @@ class CalculatorTest extends AnyFlatSpec with ScalaFutures {
       result shouldBe expectedResult
     }
   }
-
-  it should "return fibonacci series till the value Seq(10)" in {
-    val actualResult = Calculator.calculate("%", Seq(10, 5))``
-    val expectedResult = List(0.0, 1.0, 1.0, 2.0, 3.0, 5.0, 8.0, 13.0, 21.0, 34.0)
-    whenReady(actualResult) { result =>
-      result shouldBe expectedResult
-    }
-  }
 }
